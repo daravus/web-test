@@ -10,9 +10,11 @@ $default_blue: #2f80ed
 $default_cyan: #3ae0fe
 $default_gray: #eef7ff
 $default_white: #fff
+$default_black: #000
 $default_content_width: 1164px
 
-html	
+html
+	height: 100%	
     box-sizing: border-box
 body
 	text-align: center
@@ -21,9 +23,11 @@ body
 	font-size: 18px
 	font-weight: 700
 	line-height: 21.88px
-	color: #000
-	background-color: #fff
-
+	color: $default_black
+	background-color: $default_white
+	display: flex
+	flex-direction: column
+	min-height: 100%
 main
 	max-width: $default_content_width
 	display: grid
@@ -55,7 +59,7 @@ header
 
 	img
 		position: absolute
-		width: 100%
+		width: 100%			//
 		z-index: -1
 		left: 0px
 		// visibility: hidden   ///
@@ -63,46 +67,111 @@ header
 	*
 		text-decoration: none
 		text-transform: capitalize
-
-	.header_logo
-		font-size: 36px
-		align-content: center
-		margin: auto 0
-		color: #fff
-
-	.header_link
-		color: #ffffffc9
-		line-height: 22px
-		font-size: 18px
-
-	.header_list
-		display: flex
-		flex-wrap: wrap
-
-	.header_item
-		margin: auto
-		margin-right: 61px
-		
-	.header_item:last-child
-		margin-right: 0
-		
-	.header_button
-		width: 250px
-		height: 40px
-		background-color: #f2f2f2
-		border-color: #f2f2f2
-		font-family: 'Montserrat', sans-serif      // поменять на verdana 400
-		text-transform: uppercase
-		font-size: 15px
-		color: $default_blue
-		border-radius: 6px
-
-	.header_link:hover, .header_link:focus, .header_link:active, .header_button:hover, .header_button:focus, .header_button:active
-		opacity: .75
+.header_logo
+	font-size: 36px
+	align-content: center
+	margin: auto 0
+	color: $default_white
+.header_link
+	color: #ffffffc9	//
+	line-height: 22px
+	font-size: 18px
+.header_list
+	display: flex
+	flex-wrap: wrap
+.header_item
+	margin: auto
+	margin-right: 61px
+.header_item:last-child
+	margin-right: 0
+.header_button
+	width: 250px
+	height: 40px
+	background-color: #f2f2f2	//
+	border-color: #f2f2f2		//
+	font-family: 'Montserrat', sans-serif      // поменять на verdana 400
+	text-transform: uppercase
+	font-size: 15px
+	color: $default_blue
+	border-radius: 6px
+.header_link:hover, .header_link:focus, .header_link:active, .header_button:hover, .header_button:focus, .header_button:active
+	opacity: .75
+	
 footer
-	height: 172px
-	width: 100%
-	background-color: #d1b0b0
+	// height: 172px
+	// background-color: #d1b0b0	//
+	margin-top: auto
+	margin-left: 40px
+	margin-right: 40px
+	margin-bottom: 18px
+	
+	*
+		text-decoration: none
+
+	.top_container	
+		display: flex
+		justify-content: space-between
+		
+		.top_left_container
+			display: flex
+			
+			div
+				display: flex
+				flex-direction: column
+				text-align: left
+				margin: auto 42px
+				// margin-top: 0
+				
+				a
+					color: #333
+					font-size: 18px
+					font-weight: 400
+					text-transform: uppercase
+					line-height: 22px
+					margin-bottom: 4px
+					
+		.top_right_container
+			max-width: 260px
+
+			p		
+				text-align: right
+				font-family: Verdana, Geneva, Tahoma, sans-serif
+				font-style: normal
+				font-weight: bold
+				font-size: 24px
+			
+			p:last-child
+				font-family: Verdana
+				font-style: normal
+				font-weight: normal
+				font-size: 14px
+				line-height: 20px
+				color: #959595
+
+
+		.footer_logo
+			font-size: 36px
+			line-height: 80px
+			font-color: #000
+			text-decoration: none
+			color: $default_blue
+			// align-content: center
+			// margin: auto 0
+	.bottom_container	
+		display: flex
+		justify-content: space-between
+
+		p
+			font-size: 15px
+			line-height: 24px
+			color: rgba(0, 0, 0, 0.8)
+			margin-top: auto
+
+		.footer_icons
+			display: flex
+
+			.footer_icon
+				margin-left: 18px
 
 h1
 	grid-column: 1 / 13
@@ -114,7 +183,7 @@ h1::before
 	display: inline-block
 	width: 23.4px
 	height: 76.54px
-	background-color: #2f80ed
+	background-color: $default_blue
 	vertical-align: middle
 	margin-right: 1.5rem
 h4
@@ -124,15 +193,20 @@ h4
 	font-size: 24px
 	line-height: 36px
 	text-transform: uppercase
+h5
+	font-weight: bold
+	font-size: 20px
+	line-height: 36px
+	color: $default_black
+	padding-bottom: 40px
 button
 	transition: 0.3s
 p
 	font-weight: 400
 	line-height: 30px
 	text-align: left
-	color: #000000cc
+	color: #000000cc	//
 
-/* Hero */
 .hero_image
 	position: absolute
 	width: 100%
@@ -144,18 +218,15 @@ p
 	grid-column: span 7
 	width: 100%
 	padding-bottom: 500px
-
 .hero_title
 	padding: 54px 0	
 	font-size: 48px
 	line-height: 80px
-	color: #fff
+	color: $default_white
 	text-align: left
 	overflow-wrap: normal
-
 .hero_title::before
 	display: none
-
 .hero_button
 	grid-column: 2 / 5
 	width: 311px
@@ -167,7 +238,6 @@ p
 	color: $default_blue
 	font-weight: 400
 
-/* Items */
 .items_container
 	grid-column: 1 / 13
 	
@@ -177,10 +247,10 @@ p
 	display: grid
 	box-sizing: border-box
 .card
-	background-color: #ffffff
+	background-color: $default_white
 	padding: 30px
 	border-radius: 20px
-	box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.37)
+	box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.37)	//
 	text-align: left
 	
 	h4
@@ -188,6 +258,7 @@ p
 
 	a
 		padding-bottom: 100px
+		color: $default_blue
 
 	img
 		width: 100%	
@@ -209,19 +280,19 @@ p
 			font-weight: 500
 			font-style: normal
 			font-size: 24px
-			color: #fff
+			color: $default_white
 			border-width: 0
 			border-radius: 6px
 			background-color: $default_blue
 			width: 100%
-			paddzing: 5px 0
+			padding: 5px 0
 //      проверить размер кнопки карты
 .button_container
 	grid-column: span 3
 	padding-bottom: 380px
 .show_more_button
 	grid-column: span 3
-	background: #ffffffc9
+	background: #ffffffc9		//
 	border-radius: 6px
 	color: $default_blue
 	border-width: 0
@@ -229,9 +300,6 @@ p
 	font-size: 24px
 	padding: 13.5px 0
 	width: 100%
-
-
-/* Benefits */
 
 .benefits_container
 	grid-column: span 12
@@ -252,28 +320,24 @@ p
 		margin: auto
 		font-size: 24px
 		font-style: normal
-		color: #000
+		color: $default_black
 		font-weight: 400
 
-/* Description */
 .desc_text
 	grid-column: span 7
 	max-width: 568.27px
 	padding-left: 1.5rem
 	font-size: 18px
 	letter-spacing: -0.015em
-
 .desc_img
 	grid-column: span 5
 	transform: translateY(-200px)
-
 .accordion_container
 	grid-column: span 12
 	width: 100%
 	grid-template-columns: 1fr
 	display: grid
 	padding-bottom: 200px
-
 details
 	grid-column: span 12
 	padding: 17px 1.5rem
@@ -284,7 +348,7 @@ details
 	font-style: normal
 	line-height: 30px
 	font-weight: 400
-	background-color: #fff
+	background-color: $default_white
 
 
 
@@ -296,42 +360,151 @@ details
 	p
 		font-size: 18px
 		line-height: 20px
-		color: #9d9d9d
+		color: #9d9d9d		//
 		font-style: normal
 		font-weight: normal
 		padding-top: 16px
-	
 // summary::-webkit-details-marker
 // 	display: none	
-
 summary::after
 	display: inline-block
 	content: "▼"
-	color: #9d9d9d
+	color: #9d9d9d		//
 	width: 34%				// исправить на адаптивность
 	text-align: right
 	position: absolute
-
 details[open]
-	background-color: #EEF7FF
+	background-color: $default_gray
 	summary
-		color: #000
+		color: $default_black
 	summary::after
 		content: "▲"
 	// transition: 0.3s
 	// animation: sweep .5s ease-in-out
-
 
 .form_h1
 	text-align: center
 	padding-bottom: 130px
 .form_h1::before
 	display: none
-
-.form_container
+.form_img
+	grid-column: span 6
+form
 	grid-column: span 6
 	padding-bottom: 200px
+	display: flex
+	flex-direction: column
 
-.test_container
+	.input_box
+		input
+			width: 50%
+		input:first-child
+		// 	width: 60%
+	
+	input
+		// width: 100%
+		background: #FFFFFF
+		border: 1px solid rgba(0, 0, 0, 0.5)
+		box-sizing: border-box
+		border-radius: 10px
+
+		font-family: Verdana
+		font-style: normal
+		font-weight: normal
+		font-size: 15px
+		line-height: 24px
+		color: rgba(0, 0, 0, 0.8)
+		padding: 8px 14px
+		margin-bottom: 40px
+
+	button
+		background: $default_blue
+		border-radius: 10px
+		border: none
+		font-family: Verdana
+		height: 40px
+		// font-style: normal
+		// font-weight: normal
+		font-size: 15px
+		line-height: 18px
+		text-align: center
+		color: $default_white
+		margin-bottom: 25px
+	
+	p
+		font-family: Verdana
+		font-style: normal
+		font-weight: normal
+		font-size: 14px
+		line-height: 20px
+		text-align: center
+		color: rgba(0, 0, 0, 0.47)
+
+.details_img
+	grid-column: span 6
+	width: 100%
+	margin-top: 170px
+.details_container
+	grid-column: span 6
+
+	h1
+		padding-bottom: 68px
+
+	p:first-child
+		margin-bottom: 50px
+	
+	p:last-child
+		font-size: 18px
+		line-height: 20px
+		color: rgba(0, 0, 0, 0.8)
+		margin-bottom: 50px
+
+.buy_button
 	grid-column: span 12
-	text-align: left
+	margin-bottom: 80px				////
+	text-transform: lowercase
+	font-family: Montserrat
+	font-weight: 500
+	font-style: normal
+	font-size: 24px
+	border-width: 0
+	border-radius: 6px
+	background-color: $default_blue
+	width: 100%
+	padding: 5px 0
+
+	a
+		text-decoration: none
+		color: $default_white
+
+b
+	font-weight: bold
+
+.details_specs
+	grid-column: span 12
+	text-align: center
+	background-color: $default_gray
+	padding: 29px 114px
+
+.login_form
+	// grid-column: span 12
+	margin: auto
+
+	input
+		line-height: 24px
+		padding: 10px 0px
+		text-align: center
+
+	.login_button_box
+		display: flex
+		position: relative
+	
+		button
+			width: 100%
+
+		img
+			z-index: -1
+			position: absolute
+			transform: translate(560px, -65px)
+			// transform: translateY(-65px)
+			// transform: 
